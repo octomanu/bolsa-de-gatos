@@ -13,6 +13,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/deblock', 'AdministrationsDeblockController@deblock')->name('deblock');
+Route::post('/deblock', 'AdministrationsDeblockController@deblockAdministrations')->name('deblock');
 
 Route::get('/', 'HomeController@welcome')->name('welcome');
