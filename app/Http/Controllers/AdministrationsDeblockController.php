@@ -25,7 +25,7 @@ class AdministrationsDeblockController extends Controller
      */
     public function deblock(){
 
-        dd(DB::connection('sqlite')->select('select * from logs'));
+        //dd(DB::connection('sqlite')->select('select * from logs'));
         $users = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true');
 
         $administrations = [];
@@ -40,11 +40,41 @@ class AdministrationsDeblockController extends Controller
         date_default_timezone_set('America/Argentina/Buenos_Aires');
         foreach($request['administrationID'] as $adminID){
             DB::connection('pgsql')->update("update administrations set unregistered_payment = false where id =  $adminID ;");
-            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, created_at) values (?, ?, ?)', [Auth::id(), $adminID, date("d-m-Y"). ' '. date("h:i:sa")]);
+            DB::connection('pgsql')->insert('insert into logs(user_id, administrations_id, created_at) values (?, ?, ?)', [Auth::id(), $adminID, date("d-m-Y"). ' '. date("h:i:sa")]);
         }
 
         return redirect('/deblock');
         
+    }
+
+    public function whitelist(){
+
+        $users = DB::connection('pgsql')->select('select * from administrations');
+
+        $administrations = [];
+
+        foreach($users as $user){
+            $administrations[] = (array) $user;
+        }
+
+        return view('whitelist')->with('administrations', $administrations);
+    }
+
+    public static function isInWhitelist($id)
+    {
+        $administration = DB::connection('pgsql')->select('select * from administrations where id = ? and whitelist = true', [$id]);
+
+        return $administration !== [];
+    }
+
+    public function whitelistAdmin($id){
+        if(!$this->isInWhitelist($id)){
+            DB::connection('pgsql')->update("update administrations set whitelist = true where id = $id");
+        } else {
+            DB::connection('pgsql')->update("update administrations set whitelist = false where id = $id");
+        }
+        return redirect('/whitelist');
+
     }
 
 }

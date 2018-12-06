@@ -70,6 +70,8 @@
                 <div class="top-right links">
                     @if (Auth::check())
                         <a href="{{ url('/deblock') }}">Desbloquear Administración</a>
+
+                        <a href="{{ url('/whitelist') }}">whitelist</a>
                         <!-- Right Side Of Navbar -->
                         <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();

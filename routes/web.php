@@ -17,3 +17,6 @@ Route::get('/deblock', 'AdministrationsDeblockController@deblock')->name('debloc
 Route::post('/deblock', 'AdministrationsDeblockController@deblockAdministrations')->name('deblock');
 
 Route::get('/', 'HomeController@welcome')->name('welcome');
+
+Route::get('/whitelist', 'AdministrationsDeblockController@whitelist')->name('whitelist');
+Route::get('/whitelist/{id}', 'AdministrationsDeblockController@whitelistAdmin')->name('whitelist');

@@ -16,8 +16,8 @@ class CreateLog extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('administrations_id');
-            $table->timestamps()->useCurrent();
+            $table->integer('administrations_id');
+            $table->timestamps();
         });
     }
 
