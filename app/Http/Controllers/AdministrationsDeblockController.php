@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class AdministrationsDeblockController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function deblock(){
+
         $users = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true');
 
         $administrations = [];
@@ -36,7 +38,9 @@ class AdministrationsDeblockController extends Controller
     public function deblockAdministrations(Request  $request){
         foreach($request['administrationID'] as $adminID){
             DB::connection('pgsql')->update("update administrations set unregistered_payment = false where id =  $adminID ;");
+            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id) values (?, ?)', [Auth::id(), $adminID]);
         }
+
         return redirect('/deblock');
         
     }
