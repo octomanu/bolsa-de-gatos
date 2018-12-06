@@ -17,7 +17,7 @@ class CreateLog extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('administrations_id');
-            $table->timestamps();
+            $table->timestamps()->useCurrent();
         });
     }
 
