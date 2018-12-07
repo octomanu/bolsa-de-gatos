@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.1-apache
 
 COPY . /var/www/html
 
@@ -8,7 +8,7 @@ RUN a2enmod rewrite
 
 RUN apt-get update
 
-RUN apt-get install -y libpq-dev
+RUN apt-get install -y libpq-dev libpcre3-dev
 
 RUN docker-php-source extract \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
