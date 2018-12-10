@@ -26,7 +26,7 @@ class AdministrationsDeblockController extends Controller
     public function deblock(){
 
         //dd(DB::connection('sqlite')->select('select * from logs'));
-        $users = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true');
+        $users = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true order by id');
 
         $administrations = [];
 
@@ -49,7 +49,7 @@ class AdministrationsDeblockController extends Controller
 
     public function whitelist(){
 
-        $users = DB::connection('pgsql')->select('select * from administrations');
+        $users = DB::connection('pgsql')->select('select * from administrations order by id');
 
         $administrations = [];
 
