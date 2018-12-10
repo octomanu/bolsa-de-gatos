@@ -25,7 +25,7 @@ class AdministrationsDeblockController extends Controller
      */
     public function deblock(){
 
-        dd(DB::connection('sqlite')->select('select * from logs'));
+        //dd(DB::connection('sqlite')->select('select * from logs'));
         $users = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true');
 
         $administrations = [];
