@@ -19,25 +19,28 @@
                          {{ csrf_field() }}
 
                          <div class="form-group{{ $errors->has('administrationID') ? ' has-error' : '' }}">
-                            @foreach ( $administrations as $administration)
                                 <div class="col-md-6">
-                                    <div class="panel-heading">IN</div>
+                                    <div class="panel-heading">IN the whitelist</div>
                                     <ul>
+                                        @foreach ( $administrations as $administration)
                                                                              
-                                        @if(AdministrationsDeblockController::isInWhitelist($administration['id']))
-                                            <li><a href="/whitelist/{{$administration['id']}}">{{$administration['id'] . '-' . $administration['name'] }}</a></li>
-                                        @endif
+                                            @if(AdministrationsDeblockController::isInWhitelist($administration['id']))
+                                                <li><a href="/whitelist/{{$administration['id']}}">{{$administration['id'] . '-' . $administration['name'] }}</a></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="panel-heading">OUT</div>
-                                    <ul>                                           
-                                        @if(!AdministrationsDeblockController::isInWhitelist($administration['id']))
-                                                <li><a href="/whitelist/{{$administration['id']}}">{{$administration['id'] . '-' . $administration['name'] }}</a></li>
-                                        @endif    
+                                    <div class="panel-heading">OUT of whitelisr</div>
+                                    <ul>
+                                        @foreach ( $administrations as $administration)
+                                            @if(!AdministrationsDeblockController::isInWhitelist($administration['id']))
+                                                    <li><a href="/whitelist/{{$administration['id']}}">{{$administration['id'] . '-' . $administration['name'] }}</a></li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
-                             @endforeach
+
                          </div>
                      </form>
             </div>
