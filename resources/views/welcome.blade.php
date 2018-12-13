@@ -47,6 +47,8 @@
 
             .title {
                 font-size: 84px;
+                display: flex;
+                align-items: center;
             }
 
             .links > a {
