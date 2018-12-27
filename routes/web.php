@@ -20,3 +20,7 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Route::get('/whitelist', 'AdministrationsDeblockController@whitelist')->name('whitelist');
 Route::get('/whitelist/{id}', 'AdministrationsDeblockController@whitelistAdmin')->name('whitelist');
+
+Route::get('/administraciones', 'RemitoController@listadosAdministraciones')->name('listadosAdministraciones');
+Route::get('/remito/{id}', 'RemitoController@armarRemito')->name('remito');
+Route::post('/remito/{id}', 'RemitoController@excelRemito')->name('remito');
