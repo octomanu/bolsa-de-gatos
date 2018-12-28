@@ -128,7 +128,7 @@
                                         @foreach($consortiums as $consortium)
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" name="expenses[]"  value="{{ $consortium['id'] }}">
+                                                    <input type="checkbox" class="form-check-input" name="expenses[]"  value="{{ $consortium['fancy_name'] }}">
                                                     {{ $consortium['fancy_name'] }}
                                                 </label>
                                             </div>
@@ -142,7 +142,7 @@
                                         @foreach($consortiums as $consortium)
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" name="salary[]"  value="{{ $consortium['id'] }}">
+                                                    <input type="checkbox" class="form-check-input" name="salary[]"  value="{{ $consortium['fancy_name'] }}">
                                                     {{ $consortium['fancy_name'] }}
                                                 </label>
                                             </div>
@@ -160,8 +160,32 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+                                <hr>
+
+                                <div class="form-group">
+                                    <label for="typeDelivery" class="col-md-4 text-right">Fecha de entrega</label>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="date" class="form-input" name="date"  value="">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="typeDelivery" class="col-md-4 text-right">Entregado por:</label>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="text" class="form-input" name="recieve"  value="">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             <button type="submit" class="btn btn-primary btn-lg btn-block">Armar Remito</button>
                         </form>
                     </div>

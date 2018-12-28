@@ -10,6 +10,8 @@ RUN apt-get update
 
 RUN apt-get install -y libpq-dev libpcre3-dev zlib1g-dev
 
+RUN apt-get install -y \zlib1g-dev
+
 RUN docker-php-source extract \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install -j$(nproc) pdo \
