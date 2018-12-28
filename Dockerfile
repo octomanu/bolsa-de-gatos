@@ -8,7 +8,7 @@ RUN a2enmod rewrite
 
 RUN apt-get update
 
-RUN apt-get install -y libpq-dev libpcre3-dev
+RUN apt-get install -y libpq-dev libpcre3-dev zlib1g-dev
 
 RUN docker-php-source extract \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
@@ -16,6 +16,7 @@ RUN docker-php-source extract \
     && docker-php-ext-install -j$(nproc) pdo_pgsql \
     && docker-php-ext-install -j$(nproc) pgsql \
     && docker-php-ext-install -j$(nproc) mbstring \
+    && docker-php-ext-install -j$(nproc) zip \
     && docker-php-source delete
 
 WORKDIR /var/www/html
