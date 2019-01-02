@@ -32,7 +32,7 @@ class RemitoController extends Controller
         //dd(DB::connection('sqlite')->select('select * from logs'));
         //$users = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true order by id');
 
-        $administration = DB::connection('pgsql')->select('select * from administrations');
+        $administration = DB::connection('pgsql')->select('select * from administrations ORDER BY name');
 
 
         $administrations = [];
@@ -46,7 +46,7 @@ class RemitoController extends Controller
 
     public function armarRemito($id){
 
-        $administrationSearch = DB::connection('pgsql')->select('select * from administrations where id = '.$id . 'ORDER BY name');
+        $administrationSearch = DB::connection('pgsql')->select('select * from administrations where id = '.$id );
 
         $administration = (array)$administrationSearch[0];
 
