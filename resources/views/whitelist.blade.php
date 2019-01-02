@@ -15,7 +15,7 @@
                     @endif     
                 </div>   
                  <div class="panel-body">
-                     <form class="form-horizontal" method="POST" action="{{ route('deblock') }}">
+                     <form class="form-horizontal" method="POST" action="{{ route('witelist') }}">
                          {{ csrf_field() }}
 
                          <div class="form-group{{ $errors->has('administrationID') ? ' has-error' : '' }}">
@@ -31,7 +31,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="panel-heading">OUT of whitelisr</div>
+                                    <div class="panel-heading">OUT of whitelist</div>
                                     <ul>
                                         @foreach ( $administrations as $administration)
                                             @if(!AdministrationsDeblockController::isInWhitelist($administration['id']))

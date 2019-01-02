@@ -71,10 +71,17 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/deblock') }}">Desbloquear Administración</a>
+                        @if(Auth::user()->hasRole('deblock'))
+                            <a href="{{ url('/deblock') }}">Desbloquear Administración</a>
 
-                        <a href="{{ url('/whitelist') }}">whitelist</a>
-                        <!-- Right Side Of Navbar -->
+                            <a href="{{ url('/whitelist') }}">whitelist</a>
+                        @endif
+                        @if(Auth::user()->hasRole('remito'))
+                            <a href="{{ url('/administraciones') }}">Administraciones</a>
+                        @endif
+                        @if(Auth::user()->hasRole('superAdmin'))
+                            <a href="{{ url('/register') }}">Registrar</a>
+                        @endif
                         <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
