@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('role:superAdmin');
+    }
     public function usuarios(){
 
         //dd(DB::connection('sqlite')->select('select * from logs'));
