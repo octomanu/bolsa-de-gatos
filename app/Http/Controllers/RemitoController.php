@@ -46,7 +46,7 @@ class RemitoController extends Controller
 
     public function armarRemito($id){
 
-        $administrationSearch = DB::connection('pgsql')->select('select * from administrations where id = '.$id);
+        $administrationSearch = DB::connection('pgsql')->select('select * from administrations where id = '.$id . 'ORDER BY name');
 
         $administration = (array)$administrationSearch[0];
 
