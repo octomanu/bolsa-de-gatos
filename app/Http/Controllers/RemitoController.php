@@ -20,7 +20,7 @@ class RemitoController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('role:remito');
     }
     /**
      * Show the application dashboard.

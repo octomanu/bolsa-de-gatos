@@ -24,3 +24,7 @@ Route::get('/whitelist/{id}', 'AdministrationsDeblockController@whitelistAdmin')
 Route::get('/administraciones', 'RemitoController@listadosAdministraciones')->name('listadosAdministraciones');
 Route::get('/remito/{id}', 'RemitoController@armarRemito')->name('remito');
 Route::post('/remito/{id}', 'RemitoController@excelRemito')->name('remito');
+
+Route::get('/usuarios', 'RoleController@usuarios')->name('usuarios');
+Route::get('/roles/{id}', 'RoleController@roles')->name('roles');
+Route::get('/roles/{id}/asignar/{idRol}', 'RoleController@asignRoles')->name('roles');
