@@ -29,11 +29,19 @@
                                         </thead>
                                         <tbody>
                                         @foreach($data['administrations'] as $whitelist)
-                                            <tr>
-                                                <th scope="row">{{ $whitelist['id'] }}</th>
-                                                <td>{{ $whitelist['name'] }}</td>
-                                                <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
-                                            </tr>
+                                            @if( $whitelist['days_of_debt'] >= 60)
+                                                <tr style="color: #f00">
+                                                    <th scope="row">{{ $whitelist['id'] }}</th>
+                                                    <td>{{ $whitelist['name'] }}</td>
+                                                    <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
+                                                </tr>
+                                            @else
+                                                <tr>
+                                                    <th scope="row">{{ $whitelist['id'] }}</th>
+                                                    <td>{{ $whitelist['name'] }}</td>
+                                                    <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
+                                                </tr>
+                                            cd ../@endif
                                         @endforeach
                                         </tbody>
                                     </table>
@@ -68,7 +76,7 @@
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Nombre Administracion</th>
-                                            <th scope="col">Días</th>
+                                            <th scope="col">Días para bloqueo</th>
                                             <th scope="col">Link</th>
                                         </tr>
                                         </thead>
