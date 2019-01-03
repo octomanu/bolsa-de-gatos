@@ -81,6 +81,7 @@
                         @endif
                         @if(Auth::user()->hasRole('superAdmin'))
                             <a href="{{ url('/register') }}">Registrar</a>
+                            <a href="{{ url('/report') }}">Reporte</a>
                         @endif
                         <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();

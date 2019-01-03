@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('role:report');
+    }
     public function whitelistAdministrations(){
 
         $administrations = DB::connection('pgsql')->select('select * from administrations  where whitelist = true');

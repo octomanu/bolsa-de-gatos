@@ -20,7 +20,7 @@
                                 <tr>
                                     <th scope="row">{{ $whitelist['id'] }}</th>
                                     <td>{{ $whitelist['name'] }}</td>
-                                    <td>{{ $whitelist['link_intiza'] }}</td>
+                                    <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -41,7 +41,7 @@
                                 <tr>
                                     <th scope="row">{{ $blocked['id'] }}</th>
                                     <td>{{ $blocked['name'] }}</td>
-                                    <td>{{ $blocked['link_intiza'] }}</td>
+                                    <td><a href="{{ $blocked['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -64,7 +64,7 @@
                                     <th scope="row">{{ $almost['id'] }}</th>
                                     <td>{{ $almost['name'] }}</td>
                                     <td>{{ 60 - $almost['days_of_debt'] }}</td>
-                                    <td>{{ $almost['link_intiza'] }}</td>
+                                    <td><a href="{{ $almost['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
                                 </tr>
                             @endforeach
                             </tbody>
