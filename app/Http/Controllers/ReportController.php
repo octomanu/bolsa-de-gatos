@@ -18,11 +18,11 @@ class ReportController extends Controller
     }
     public function whitelistAdministrations(){
 
-        $administrations = DB::connection('pgsql')->select('select * from administrations  where whitelist = true');
+        $administrations = DB::connection('pgsql')->select('select * from administrations  where whitelist = true order by name');
 
         $blocked = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true order by id');
 
-        $almost = DB::connection('pgsql')->select ('select * from administrations where days_of_debt BETWEEN 30 and 60');
+        $almost = DB::connection('pgsql')->select ('select * from administrations where days_of_debt BETWEEN 30 and 60 order by days_of_debt DESC');
 
         $admin1 = [];
         $block1 = [];
