@@ -15,7 +15,7 @@
                     @endif     
                 </div>   
                  <div class="panel-body">
-                     <form class="form-horizontal" method="POST" action="{{ route('witelist') }}">
+                     <form class="form-horizontal" method="POST" action="{{ route('whitelist') }}">
                          {{ csrf_field() }}
 
                          <div class="form-group{{ $errors->has('administrationID') ? ' has-error' : '' }}">
