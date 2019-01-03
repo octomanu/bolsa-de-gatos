@@ -22,7 +22,7 @@ class ReportController extends Controller
 
         $blocked = DB::connection('pgsql')->select('select * from administrations where unregistered_payment = true order by id');
 
-        $almost = DB::connection('pgsql')->select ('select * from administrations where days_of_debt BETWEEN 50 and 60');
+        $almost = DB::connection('pgsql')->select ('select * from administrations where days_of_debt BETWEEN 30 and 60');
 
         $admin1 = [];
         $block1 = [];
