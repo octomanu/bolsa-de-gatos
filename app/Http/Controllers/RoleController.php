@@ -60,4 +60,15 @@ class RoleController extends Controller
         return redirect('/roles/' . $id);
     }
 
+    public function createRol(){
+        return view('createRol');
+    }
+
+    public function storeRol(Request $request){
+
+        DB::connection('sqlite')->insert('insert into roles (name) VALUES ("'. $request->input('rol') . '")');
+
+        return redirect('/usuarios');
+    }
+
 }

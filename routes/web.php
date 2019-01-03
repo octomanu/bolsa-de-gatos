@@ -28,5 +28,8 @@ Route::post('/remito/{id}', 'RemitoController@excelRemito')->name('remito');
 Route::get('/usuarios', 'RoleController@usuarios')->name('usuarios');
 Route::get('/roles/{id}', 'RoleController@roles')->name('roles');
 Route::get('/roles/{id}/asignar/{idRol}', 'RoleController@asignRoles')->name('roles');
+Route::get('/crearRol', 'RoleController@createRol')->name('crearRol');
+Route::post('/crearRol', 'RoleController@storeRol')->name('crearRol');
+
 
 Route::get('/report', 'ReportController@whitelistAdministrations')->name('report');
