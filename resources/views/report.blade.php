@@ -41,7 +41,7 @@
                                                     <td>{{ $whitelist['name'] }}</td>
                                                     <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
                                                 </tr>
-                                            cd ../@endif
+                                            @endif
                                         @endforeach
                                         </tbody>
                                     </table>
