@@ -84,6 +84,7 @@
                         @endif
                         @if(Auth::user()->hasRole('report'))
                             <a href="{{ url('/report') }}">Reporte</a>
+                            <a href="{{ url('/busqueda') }}">Busqueda</a>
                         @endif
                         <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
