@@ -40,7 +40,7 @@ class AdministrationsDeblockController extends Controller
         date_default_timezone_set('America/Argentina/Buenos_Aires');
         foreach($request['administrationID'] as $adminID){
             DB::connection('pgsql')->update("update administrations set unregistered_payment = false where id =  $adminID ;");
-            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, created_at) values (?, ?, )', [Auth::id(), $adminID, date("d-m-Y"). ' '. date("h:i:sa")]);
+            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, created_at) values (?, ?, ?)', [Auth::id(), $adminID, date("d-m-Y"). ' '. date("h:i:sa")]);
         }
 
         return redirect('/deblock');
