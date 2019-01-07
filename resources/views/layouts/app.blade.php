@@ -19,11 +19,6 @@
             height: 100vh;
             margin: 0;
         }
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
         .links > a {
             color: #636b6f;
             padding: 0 25px;
@@ -32,13 +27,25 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+            display: block;
+            padding: 20px;
+        }
+        .links{
+            padding-top: 70px;
+            position: fixed;
+            background-color: #fff;
+            left: 0;
+            height: 100vh;
+            z-index: -3;
+            border-right: 1px solid #d3e0e9;
         }
         .navbar-brand{
-            display: flex;
-            align-items: center;
-        }
-        .navbar-brand img{
-            height: 150%;
+            color: #1a1a20;
+            font-weight: bold;
+            position: fixed;
+            left: 15px;
+            margin-top: 15px;
+            font-size: 30px !important;
         }
     </style>
 
@@ -47,75 +54,58 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-static-top">
             <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
+                <div class="">
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         Bolsa De Pulpos
                     </a>
-                </div>
+                    <!-- Authentication Links -->
+                    @if (!Auth::guest())
+                        @if (Route::has('login'))
+                            <div class="links">
+                                @if (Auth::check())
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+                                    @if(Auth::user()->hasRole('deblock'))
+                                        <a href="{{ url('/deblock') }}">Desbloquear Administración</a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                        @else
-                            @if (Route::has('login'))
-                                <div class="top-right links">
-                                    @if (Auth::check())
-                                        @if(Auth::user()->hasRole('deblock'))
-                                            <a href="{{ url('/deblock') }}">Desbloquear Administración</a>
-
-                                            <a href="{{ url('/whitelist') }}">whitelist</a>
-                                        @endif
-                                        @if(Auth::user()->hasRole('remito'))
-                                                <a href="{{ url('/administraciones') }}">Administraciones</a>
-                                        @endif
-                                        @if(Auth::user()->hasRole('superAdmin'))
-                                                <a href="{{ url('/register') }}">Registrar</a>
-                                        @endif
-                                        @if(Auth::user()->hasRole('report'))
-                                                    <a href="{{ url('/report') }}">Reporte</a>
-                                        @endif
-
-                                         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    @else
-                                        <a href="{{ url('/login') }}">Login</a>
+                                        <a href="{{ url('/whitelist') }}">whitelist</a>
                                     @endif
-                                </div>
-                            @endif
+                                    @if(Auth::user()->hasRole('remito'))
+                                        <a href="{{ url('/administraciones') }}">Administraciones</a>
+                                    @endif
+                                    @if(Auth::user()->hasRole('superAdmin'))
+                                        <a href="{{ url('/register') }}">Registrar</a>
+                                    @endif
+                                    @if(Auth::user()->hasRole('report'))
+                                        <a href="{{ url('/report') }}">Reporte</a>
+                                    @endif
+
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                @endif
+                            </div>
                         @endif
-                    </ul>
+                    @endif
                 </div>
             </div>
         </nav>
+         @if(Auth::guest())
+            @yield('content')
+         @else
+            <div style="margin-left: 200px; margin-top: 0">
+                @yield('content')
+            </div>
+         @endif
 
-        @yield('content')
+
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
