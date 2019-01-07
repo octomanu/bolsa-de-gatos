@@ -40,7 +40,7 @@ class AdministrationsDeblockController extends Controller
         date_default_timezone_set('America/Argentina/Buenos_Aires');
         foreach($request['administrationID'] as $adminID){
             DB::connection('pgsql')->update("update administrations set unregistered_payment = false where id =  $adminID ;");
-            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, movement, created_at) values (?, ?, ?,?)', [Auth::id(), $adminID,'deblock', date("d-m-Y"). ' '. date("h:i:sa")]);
+            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, created_at) values (?, ?, ?,?)', [Auth::id(), $adminID, date("d-m-Y"). ' '. date("h:i:sa")]);
         }
 
         return redirect('/deblock');
@@ -70,11 +70,11 @@ class AdministrationsDeblockController extends Controller
     public function whitelistAdmin($id){
         if(!$this->isInWhitelist($id)){
             DB::connection('pgsql')->update("update administrations set whitelist = true where id = $id");
-            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, movement, created_at) values (?, ?, ?,?)', [Auth::id(), $id,'whitelist_in', date("d-m-Y"). ' '. date("h:i:sa")]);
+            //DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, movement, created_at) values (?, ?, ?,?)', [Auth::id(), $id,'whitelist_in', date("d-m-Y"). ' '. date("h:i:sa")]);
 
         } else {
             DB::connection('pgsql')->update("update administrations set whitelist = false where id = $id");
-            DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, movement, created_at) values (?, ?, ?,?)', [Auth::id(), $id,'whitelist_out', date("d-m-Y"). ' '. date("h:i:sa")]);
+            //DB::connection('sqlite')->insert('insert into logs(user_id, administrations_id, movement, created_at) values (?, ?, ?,?)', [Auth::id(), $id,'whitelist_out', date("d-m-Y"). ' '. date("h:i:sa")]);
 
         }
         return redirect('/whitelist');
