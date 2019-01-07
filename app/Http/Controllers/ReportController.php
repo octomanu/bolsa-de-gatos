@@ -25,9 +25,12 @@ class ReportController extends Controller
 
         $almost = DB::connection('pgsql')->select ('select * from administrations where days_of_debt BETWEEN 30 and 60 order by days_of_debt DESC');
 
+        $active = DB::connection('pgsql')->select ('select * from administrations where active = true ORDER BY name');
+
         $admin1 = [];
         $block1 = [];
         $almost1 = [];
+        $active1 = [];
         foreach($administrations as $admin){
             $admin1[] = (array) $admin;
         }
@@ -37,11 +40,15 @@ class ReportController extends Controller
         foreach($almost as $admin){
             $almost1[] = (array) $admin;
         }
+        foreach($active as $admin){
+            $active1[] = (array) $admin;
+        }
 
         $data = [
             'administrations' => $admin1,
             'blocked'         => $block1,
-            'almost'          => $almost1
+            'almost'          => $almost1,
+            'active'          => $active1
         ];
 
         //dd($data);

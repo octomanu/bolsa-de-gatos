@@ -13,6 +13,7 @@
                             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Whitelist</a></li>
                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Bloqueados</a></li>
                             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">A punto de bloquear</a></li>
+                            <li role="presentation"><a href="#active" aria-controls="messages" role="tab" data-toggle="tab">Active</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -87,6 +88,28 @@
                                                 <td>{{ $almost['name'] }}</td>
                                                 <td>{{ 60 - $almost['days_of_debt'] }}</td>
                                                 <td><a href="{{ $almost['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="active">
+                                <div class="panel-body">
+                                    <table  class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Nombre Administracion</th>
+                                            <th scope="col">CUIT</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($data['active'] as $active)
+                                            <tr>
+                                                <th scope="row">{{ $active['id'] }}</th>
+                                                <td>{{ $active['name'] }}</td>
+                                                <td>{{ $active['cuit'] }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
