@@ -80,5 +80,16 @@ class AdministrationsDeblockController extends Controller
         return redirect('/whitelist');
 
     }
+    public static function getWhitelistReason($id){
+        $reason = (array) DB::connection('sqlite')->select('select * from whitelist_reason where administration_id = '. $id);
+
+        if ($reason){
+            $reason1 = (array) $reason[0];
+        } else {
+            $reason1['reason'] = null;
+        }
+
+        return $reason1['reason'];
+    }
 
 }
