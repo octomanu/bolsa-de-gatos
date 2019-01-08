@@ -69,7 +69,7 @@ class ReportController extends Controller
         if ($request->input('por') == 'administration'){
             $query .= ' select * from administrations';
             if ($request->input('name')){
-                $query .= ' where name like  %' .$request->input('name'). '%';
+                $query .= ' where name like  "%' .$request->input('name'). '%"';
             }
         } else if ($request->input('por') == 'consortium'){
             $query .= 'select * from consortia';
