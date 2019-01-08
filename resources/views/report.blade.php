@@ -26,6 +26,7 @@
                                             <th scope="col">ID</th>
                                             <th scope="col">Nombre Administracion</th>
                                             <th scope="col">Link</th>
+                                            <th scope="col">Razón</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -35,12 +36,60 @@
                                                     <th scope="row">{{ $whitelist['id'] }}</th>
                                                     <td>{{ $whitelist['name'] }}</td>
                                                     <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
+                                                    <td>
+                                                        @if(\App\Http\Controllers\AdministrationsDeblockController::getWhitelistReason($whitelist['id']))
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
+
+                                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                                                <div class="modal-dialog modal-sm" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                            <h4 class="modal-title" id="gridSystemModalLabel">Razón</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
+                                                                                <p>{{\App\Http\Controllers\AdministrationsDeblockController::getWhitelistReason($whitelist['id'])}}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                             @else
                                                 <tr>
                                                     <th scope="row">{{ $whitelist['id'] }}</th>
                                                     <td>{{ $whitelist['name'] }}</td>
                                                     <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
+                                                    <td>
+                                                        @if(\App\Http\Controllers\AdministrationsDeblockController::getWhitelistReason($whitelist['id']))
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
+
+                                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                                                <div class="modal-dialog modal-sm" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                            <h4 class="modal-title" id="gridSystemModalLabel">Razón</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
+                                                                                <p>{{\App\Http\Controllers\AdministrationsDeblockController::getWhitelistReason($whitelist['id'])}}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                             @endif
                                         @endforeach
