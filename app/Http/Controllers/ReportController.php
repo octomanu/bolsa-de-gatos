@@ -24,7 +24,7 @@ class ReportController extends Controller
 
         $almost = DB::connection('pgsql')->select ('select * from administrations where days_of_debt BETWEEN 30 and 60 order by days_of_debt DESC');
 
-        $active = DB::connection('pgsql')->select ("select * from consortia INNER JOIN expenses ON consortia.id = expenses.administrable_id WHERE expenses.status = 'printed' ORDER BY business_name");
+        $active = DB::connection('pgsql')->select ("select * from consortia INNER JOIN expenses ON consortia.id = expenses.administrable_id WHERE expenses.status = 'printed' ORDER BY fancy_name");
 
 
         $admin1 = [];

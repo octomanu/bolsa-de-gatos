@@ -160,7 +160,7 @@
                                             <tr>
                                                 <th scope="row">{{ $active['id'] }}</th>
                                                 <td>{{ $active['address'] }}, {{ $active['location'] }}</td>
-                                                <td>{{ $active['business_name'] }}</td>
+                                                <td>{{ $active['fancy_name'] }}</td>
                                                 <td>{{ \App\Http\Controllers\ReportController::administrationNameById($active['administration_id'])}}</td>
                                                 <td>{{ $active['cuit'] }}</td>
                                             </tr>
