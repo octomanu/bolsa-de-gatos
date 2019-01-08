@@ -24,9 +24,9 @@
                                             @if(AdministrationsDeblockController::isInWhitelist($administration['id']))
                                                 <li><a href="/whitelist/{{$administration['id']}}">{{$administration['id'] . '-' . $administration['name'] }}</a>
                                                     @if(AdministrationsDeblockController::getWhitelistReason($administration['id']))
-                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm{{$administration['id']}}" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
 
-                                                        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                                        <div class="modal fade bs-example-modal-sm{{$administration['id']}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                                             <div class="modal-dialog modal-sm" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -45,9 +45,9 @@
                                                             </div>
                                                         </div>
                                                     @else
-                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo" style="border: none;"><i class="fas fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal2{{$administration['id']}}" data-whatever="@mdo" style="border: none;"><i class="fas fa-edit"></i></button>
 
-                                                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="padding: 50px;">
+                                                        <div class="modal fade" id="exampleModal2{{$administration['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="padding: 50px;">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
