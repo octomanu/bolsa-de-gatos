@@ -13,6 +13,8 @@
         <!-- Styles -->
         <style>
             html, body {
+                background-image: url("img/octopus.jpg");
+                background-size: cover;
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
@@ -48,11 +50,11 @@
             .title {
                 font-size: 84px;
                 display: flex;
-                align-items: center;
+                align-items: start;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -62,7 +64,8 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-top: 170px;
+                color: #fff;
             }
         </style>
     </head>

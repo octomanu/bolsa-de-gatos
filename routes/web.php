@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@welcome')->name('welcome');
 
 Route::get('/whitelist', 'AdministrationsDeblockController@whitelist')->name('whitelist');
 Route::get('/whitelist/{id}', 'AdministrationsDeblockController@whitelistAdmin')->name('whitelist');
+Route::post('/saveNoteWhitelist', 'AdministrationsDeblockController@saveNoteWhitelist')->name('saveNoteWhitelist');
 
 Route::get('/administraciones', 'RemitoController@listadosAdministraciones')->name('listadosAdministraciones');
 Route::get('/remito/{id}', 'RemitoController@armarRemito')->name('remito');
@@ -38,3 +39,4 @@ Route::post('/busqueda', 'ReportController@searchBy')->name('report');
 
 Route::get('/administracion/{id}', 'ReportController@infoAdministration')->name('search');
 Route::get('/consorcio/{id}', 'ReportController@infoConsortium')->name('search');
+
