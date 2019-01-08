@@ -150,7 +150,8 @@
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Direccion Edificio</th>
-                                            <th scope="col">Nombre Administracion</th>
+                                            <th scope="col">Consorcio</th>
+                                            <th scope="col">Administración</th>
                                             <th scope="col">CUIT</th>
                                         </tr>
                                         </thead>
@@ -159,7 +160,8 @@
                                             <tr>
                                                 <th scope="row">{{ $active['id'] }}</th>
                                                 <td>{{ $active['address'] }}, {{ $active['location'] }}</td>
-                                                <td>{{ $active['name'] }}</td>
+                                                <td>{{ $active['business_name'] }}</td>
+                                                <td>{{ \App\Http\Controllers\ReportController::administrationNameById($active['administration_id'])}}</td>
                                                 <td>{{ $active['cuit'] }}</td>
                                             </tr>
                                         @endforeach
