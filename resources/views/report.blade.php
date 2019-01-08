@@ -13,7 +13,7 @@
                             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Whitelist</a></li>
                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Bloqueados</a></li>
                             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">A punto de bloquear</a></li>
-                            <li role="presentation"><a href="#active" aria-controls="messages" role="tab" data-toggle="tab">Active</a></li>
+                            <li role="presentation"><a href="#active" aria-controls="messages" role="tab" data-toggle="tab">Consorcios Activos</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -149,6 +149,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
+                                            <th scope="col">Direccion Edificio</th>
                                             <th scope="col">Nombre Administracion</th>
                                             <th scope="col">CUIT</th>
                                         </tr>
@@ -157,6 +158,7 @@
                                         @foreach($data['active'] as $active)
                                             <tr>
                                                 <th scope="row">{{ $active['id'] }}</th>
+                                                <td>{{ $active['address'] }}, {{ $active['location'] }}</td>
                                                 <td>{{ $active['name'] }}</td>
                                                 <td>{{ $active['cuit'] }}</td>
                                             </tr>
