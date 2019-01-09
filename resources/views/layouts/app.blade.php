@@ -48,6 +48,10 @@
             margin-top: 15px;
             font-size: 30px !important;
         }
+        .modal-body{
+            padding: 15px !important;
+            text-align: center;
+        }
     </style>
 
     <!-- Styles -->

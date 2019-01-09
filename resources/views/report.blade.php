@@ -26,7 +26,7 @@
                                             <th scope="col">ID</th>
                                             <th scope="col">Nombre Administracion</th>
                                             <th scope="col">Link</th>
-                                            <th scope="col">Razón</th>
+                                            <th scope="col">Motivo</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -38,9 +38,9 @@
                                                     <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
                                                     <td>
                                                         @if(\App\Http\Controllers\AdministrationsDeblockController::getWhitelistReason($whitelist['id']))
-                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm{{$whitelist['id']}}" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
 
-                                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                                            <div class="modal fade bs-example-modal-sm{{$whitelist['id']}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                                                 <div class="modal-dialog modal-sm" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
@@ -68,9 +68,9 @@
                                                     <td><a href="{{ $whitelist['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
                                                     <td>
                                                         @if(\App\Http\Controllers\AdministrationsDeblockController::getWhitelistReason($whitelist['id']))
-                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
+                                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm{{$whitelist['id']}}" data-whatever="@mdo" style="border: none;"><i class="fas fa-eye"></i></button>
 
-                                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                                            <div class="modal fade bs-example-modal-sm{{$whitelist['id']}}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                                                                 <div class="modal-dialog modal-sm" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
