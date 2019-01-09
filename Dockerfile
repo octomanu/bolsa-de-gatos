@@ -10,7 +10,9 @@ RUN apt-get update
 
 RUN apt-get install -y libpq-dev libpcre3-dev zlib1g-dev
 
-RUN apt-get install -y \zlib1g-dev
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+
+RUN apt-get install -y nodejs
 
 RUN docker-php-source extract \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
