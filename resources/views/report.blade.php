@@ -112,7 +112,11 @@
                                             <tr>
                                                 <th scope="row">{{ $blocked['id'] }}</th>
                                                 <td>{{ $blocked['name'] }}</td>
-                                                <td><a href="{{ $blocked['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
+                                                @if($blocked['link_intiza'])
+                                                    <td><a href="{{ $blocked['link_intiza'] }}" class="btn btn-info" target="_blank">Intiza</a></td>
+                                                @else
+                                                    <td><a href="{{ $blocked['link_intiza'] }}" class="btn btn-default disabled" target="_blank" disabled="">Intiza</a></td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                         </tbody>

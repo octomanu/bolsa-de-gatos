@@ -8,7 +8,7 @@ RUN a2enmod rewrite
 
 RUN apt-get update
 
-RUN apt-get install -y libpq-dev libpcre3-dev zlib1g-dev gnupg2
+RUN apt-get install -y libpq-dev libpcre3-dev zlib1g-dev gnupg2 libpng-dev chmod -R a+x node_modules
 
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 
