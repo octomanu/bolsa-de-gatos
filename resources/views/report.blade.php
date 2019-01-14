@@ -166,7 +166,7 @@
                                                 <th scope="row">{{ $active['id'] }}</th>
                                                 <td>{{ $active['address'] }}, {{ $active['location'] }}</td>
                                                 <td>{{ $active['fancy_name'] }}</td>
-                                                <td>{{ \App\Http\Controllers\ReportController::administrationNameById($active['administration_id'])}}</td>
+                                                <td>{{ \App\Http\Controllers\ReportController::administrationNameById($active['administration_id'])['name'] }}</td>
                                                 <td>{{ $active['cuit'] }}</td>
                                             </tr>
                                         @endforeach
@@ -182,14 +182,16 @@
                                             <th scope="col">Administración</th>
                                             <th scope="col">Fecha de desbloqueo</th>
                                             <th scope="col">Desbloqueado por</th>
+                                            <th scope="col">Días de deuda</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($data['deblocked'] as $deblocked)
                                             <tr>
-                                                <td>{{ \App\Http\Controllers\ReportController::administrationNameById($deblocked['administrations_id'])}}</td>
+                                                <td>{{ \App\Http\Controllers\ReportController::administrationNameById($deblocked['administrations_id'])['name'] }}</td>
                                                 <td>{{ $deblocked['created_at'] }}</td>
                                                 <td>{{ \App\Http\Controllers\ReportController::userNameById($deblocked['user_id']) }}</td>
+                                                <td>{{ \App\Http\Controllers\ReportController::administrationNameById($deblocked['administrations_id'])['days_of_debt'] }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>

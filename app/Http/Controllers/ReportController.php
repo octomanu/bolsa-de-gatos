@@ -70,11 +70,9 @@ class ReportController extends Controller
     }
 
     public static function administrationNameById($id){
-        $name = DB::connection('pgsql')->select ('select name from administrations where id = '. $id);
+        $name = DB::connection('pgsql')->select ('select * from administrations where id = '. $id);
 
-        $name1 = (array) $name[0];
-
-        return $name1['name'];
+        return (array) $name[0];
     }
 
     public static function userNameById($id){
