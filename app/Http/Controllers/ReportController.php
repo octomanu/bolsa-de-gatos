@@ -26,11 +26,14 @@ class ReportController extends Controller
 
         $active = DB::connection('pgsql')->select ("select * from consortia WHERE status = 'ACTIVE' ORDER BY fancy_name");
 
+        $deblocked = DB::connection('sqlite')->select("select * from logs where movement = 'deblock' ORDER BY id DESC limit 15");
+
 
         $admin1 = [];
         $block1 = [];
         $almost1 = [];
         $active1 = [];
+        $deblocked1 = [];
         foreach($administrations as $admin){
             $admin1[] = (array) $admin;
         }
@@ -43,12 +46,16 @@ class ReportController extends Controller
         foreach($active as $admin){
             $active1[] = (array) $admin;
         }
+        foreach($deblocked as $admin){
+            $deblocked1[] = (array) $admin;
+        }
 
         $data = [
             'administrations' => $admin1,
             'blocked'         => $block1,
             'almost'          => $almost1,
-            'active'          => $active1
+            'active'          => $active1,
+            'deblocked'       => $deblocked1
         ];
 
         //dd($data);
@@ -64,6 +71,14 @@ class ReportController extends Controller
 
     public static function administrationNameById($id){
         $name = DB::connection('pgsql')->select ('select name from administrations where id = '. $id);
+
+        $name1 = (array) $name[0];
+
+        return $name1['name'];
+    }
+
+    public static function userNameById($id){
+        $name = DB::connection('sqlite')->select ('select name from users where id = '. $id);
 
         $name1 = (array) $name[0];
 

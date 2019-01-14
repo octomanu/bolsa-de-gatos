@@ -14,6 +14,7 @@
                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Bloqueados</a></li>
                             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">A punto de bloquear</a></li>
                             <li role="presentation"><a href="#active" aria-controls="messages" role="tab" data-toggle="tab">Consorcios Activos</a></li>
+                            <li role="presentation"><a href="#deblocked" aria-controls="messages" role="tab" data-toggle="tab">Desbloqueados</a></li>
                         </ul>
 
                         <!-- Tab panes -->
@@ -167,6 +168,28 @@
                                                 <td>{{ $active['fancy_name'] }}</td>
                                                 <td>{{ \App\Http\Controllers\ReportController::administrationNameById($active['administration_id'])}}</td>
                                                 <td>{{ $active['cuit'] }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="deblocked">
+                                <div class="panel-body">
+                                    <table  class="table">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">Administración</th>
+                                            <th scope="col">Fecha de desbloqueo</th>
+                                            <th scope="col">Desbloqueado por</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($data['deblocked'] as $deblocked)
+                                            <tr>
+                                                <td>{{ \App\Http\Controllers\ReportController::administrationNameById($deblocked['administrations_id'])}}</td>
+                                                <td>{{ $deblocked['created_at'] }}</td>
+                                                <td>{{ \App\Http\Controllers\ReportController::userNameById($deblocked['user_id']) }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
