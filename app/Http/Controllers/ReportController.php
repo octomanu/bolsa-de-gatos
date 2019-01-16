@@ -95,7 +95,7 @@ class ReportController extends Controller
         } else if ($request->input('por') == 'consortium'){
             $query .= 'select * from consortia';
             if ($request->input('name')){
-                $query .= " where LOWER(business_name) like LOWER('%" .$request->input('name'). "%')";;
+                $query .= " where LOWER(fancy_name) like LOWER('%" .$request->input('name'). "%')";;
             }
             if ($request->input('manual_billing') == 'on'){
                 if ($request->input('name')){

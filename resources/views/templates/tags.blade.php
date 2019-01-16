@@ -5,6 +5,14 @@
             body{
                 font-family: "Raleway", sans-serif;
             }
+            td{
+                font-size: 14px;
+                width: 25%;
+                margin: 5% auto;
+            }
+            tr{
+                height: 100px;
+            }
         </style>
         <script>
             window.onload = function(){
@@ -19,7 +27,7 @@
             <tr>
                 @for($j = 0 ; $j < 3 ; $j++)
                     <td align="center">
-                        <h4 width="80%" style="margin: 7% 9%;">
+                        <h4>
                             {{ $consortium['fancy_name'] }}
                             <br>
                             Direc: {{ $consortium['address'] }}
