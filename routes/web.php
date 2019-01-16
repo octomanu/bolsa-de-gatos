@@ -40,3 +40,5 @@ Route::post('/busqueda', 'ReportController@searchBy')->name('report');
 Route::get('/administracion/{id}', 'ReportController@infoAdministration')->name('search');
 Route::get('/consorcio/{id}', 'ReportController@infoConsortium')->name('search');
 
+Route::get('/tags/{id}', 'TagsController@printTags')->name('tags');
+

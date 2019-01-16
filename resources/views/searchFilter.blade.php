@@ -51,9 +51,9 @@
                                         </tr>
                                     @else
                                         <tr>
-                                            <th scope="row">{{ $datos['id'] }}</th>
-                                            <td>{{ $datos['business_name'] }}</td>
-                                            <td><a href="/consorcio/{{ $datos['id'] }}" class="btn btn-success">Más info</a></td>
+                                            <th scope="row" width="10%">{{ $datos['id'] }}</th>
+                                            <td width="70%">{{ $datos['business_name'] }}</td>
+                                            <td width="20%"><a href="/consorcio/{{ $datos['id'] }}" class="btn btn-success">Más info</a> <a href="/tags/{{ $datos['id'] }}"><i class="fas fa-tags"></i></a></td>
                                         </tr>
                                     @endif
                                 @endforeach
@@ -64,4 +64,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection
