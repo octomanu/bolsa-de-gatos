@@ -13,7 +13,7 @@
                 width: 95%;
             }
             tr{
-                height: 110px;
+                height: 113px;
             }
             .col1{
                 margin: 5%;
