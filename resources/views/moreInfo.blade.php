@@ -161,6 +161,15 @@
                             <hr />
                             <div class="row">
                                 <div class="col-sm-3 col-md-2 col-5">
+                                    <label style="font-weight:bold;">Administración</label>
+                                </div>
+                                <div class="col-md-8 col-6">
+                                    {{ \App\Http\Controllers\ReportController::administrationNameById($consortium['administration_id'])['name'] }}
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-sm-3 col-md-2 col-5">
                                     <label style="font-weight:bold;">Nombre Ejecutivo</label>
                                 </div>
                                 <div class="col-md-8 col-6">
