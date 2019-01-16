@@ -39,6 +39,7 @@
             height: 100vh;
             z-index: -3;
             border-right: 1px solid #d3e0e9;
+            min-width: 270px;
         }
         .navbar-brand{
             color: #1a1a20;
