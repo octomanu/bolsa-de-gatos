@@ -1,10 +1,15 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <style>
+            body{
+                font-family: "Raleway", sans-serif;
+            }
+        </style>
         <script>
             window.onload = function(){
                 window.print();
-                window.location = '/consorcio/{{$consortium['id']}}'
+                window.location = '/busqueda'
             }
         </script>
     </head>
@@ -14,13 +19,13 @@
             <tr>
                 @for($j = 0 ; $j < 3 ; $j++)
                     <td align="center">
-                        <h3>
+                        <h4 width="80%" style="margin: 7% 9%;">
                             {{ $consortium['fancy_name'] }}
                             <br>
                             Direc: {{ $consortium['address'] }}
                             <br>
                             CP: {{ $consortium['postal_code'] }}
-                        </h3>
+                        </h4>
                     </td>
                 @endfor
             </tr>
