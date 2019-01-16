@@ -7,13 +7,20 @@
             }
             td{
                 font-size: 14px;
-                margin: 6% auto;
+                margin: 0;
             }
             h4{
-                width: 85%;
+                width: 95%;
             }
             tr{
-                height: 105px;
+                height: 110px;
+            }
+            .col1{
+                margin: 5%;
+            }
+            @media print {
+                @page { margin: 0;
+                    size: auto; }
             }
         </style>
         <script>
@@ -28,7 +35,7 @@
         @for($i = 1 ; $i <= 9 ; $i++)
             <tr>
                 @for($j = 0 ; $j < 3 ; $j++)
-                    <td align="center">
+                    <td align="center" class="col{{$j}}">
                         <h4>
                             {{ $consortium['fancy_name'] }}
                             <br>
