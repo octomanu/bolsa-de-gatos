@@ -7,8 +7,10 @@
             }
             td{
                 font-size: 14px;
-                width: 25%;
-                margin: 5% auto;
+                margin: 6% auto;
+            }
+            h4{
+                width: 85%;
             }
             tr{
                 height: 100px;
