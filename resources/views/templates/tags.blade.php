@@ -13,7 +13,7 @@
                 width: 85%;
             }
             tr{
-                height: 100px;
+                height: 105px;
             }
         </style>
         <script>
