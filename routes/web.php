@@ -42,6 +42,6 @@ Route::get('/consorcio/{id}', 'ReportController@infoConsortium')->name('search')
 
 Route::get('/tags/{id}', 'TagsController@printTags')->name('tags');
 
-Route::get('/heartbeat.php', ['as' => self::HEARTBEAT, 'uses' => function() {
+Route::get('/heartbeat.php', function() {
     return 'OK';
-}]);
+});
