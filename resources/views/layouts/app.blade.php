@@ -1,3 +1,7 @@
+<?php
+use App\Util;
+?>
+
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -56,7 +60,9 @@
     </style>
 
     <!-- Styles -->
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/app.css', \App\Util\EnviromentHelper::isLive()) }}">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
@@ -65,7 +71,7 @@
             <div class="container">
                 <div class="">
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/', null, \App\Util\EnviromentHelper::isLive()) }}">
                         Bolsa De Pulpos
                     </a>
                     <!-- Authentication Links -->
@@ -75,19 +81,19 @@
                                 @if (Auth::check())
 
                                     @if(Auth::user()->hasRole('deblock'))
-                                        <a href="{{ url('/deblock') }}">Desbloquear Administración</a>
+                                        <a href="{{ url('/deblock', null, \App\Util\EnviromentHelper::isLive()) }}">Desbloquear Administración</a>
 
-                                        <a href="{{ url('/whitelist') }}">whitelist</a>
+                                        <a href="{{ url('/whitelist', null, \App\Util\EnviromentHelper::isLive()) }}">whitelist</a>
                                     @endif
                                     @if(Auth::user()->hasRole('remito'))
-                                        <a href="{{ url('/administraciones') }}">Administraciones</a>
+                                        <a href="{{ url('/administraciones', null, \App\Util\EnviromentHelper::isLive()) }}">Administraciones</a>
                                     @endif
                                     @if(Auth::user()->hasRole('superAdmin'))
-                                        <a href="{{ url('/register') }}">Registrar</a>
+                                        <a href="{{ url('/register', null, \App\Util\EnviromentHelper::isLive()) }}">Registrar</a>
                                     @endif
                                     @if(Auth::user()->hasRole('report'))
-                                        <a href="{{ url('/report') }}">Reporte</a>
-                                        <a href="{{ url('/busqueda') }}">Busqueda</a>
+                                        <a href="{{ url('/report', null, \App\Util\EnviromentHelper::isLive()) }}">Reporte</a>
+                                        <a href="{{ url('/busqueda', null, \App\Util\EnviromentHelper::isLive()) }}">Busqueda</a>
                                     @endif
 
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

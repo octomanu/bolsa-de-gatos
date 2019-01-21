@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Util\EnviromentHelper;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +15,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        URL::forceScheme('https');
+        if (EnviromentHelper::isLive()){
+            URL::forceScheme('https');
+        } else {
+            URL::forceScheme('http');
+        }
+
     }
 
     /**

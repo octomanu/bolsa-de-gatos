@@ -5,18 +5,24 @@
             body{
                 font-family: "Raleway", sans-serif;
             }
-            td{
+            .td{
                 font-size: 14px;
                 margin: 0;
+                width: 30% !important;
+                height: 115px;
+                display: flex;
+                align-items: center;
             }
             h4{
                 width: 95%;
             }
-            tr{
-                height: 115px;
-            }
             .col1{
-                margin: 5%;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .box{
+                display: flex;
+                flex-wrap: wrap;
             }
             @media print {
                 @page { margin: 0;
@@ -25,28 +31,36 @@
         </style>
         <script>
             window.onload = function(){
-                window.print();
-                window.location = '/busqueda'
+               /* window.print();
+                window.location = '/busqueda'*/
             }
         </script>
     </head>
     <body>
-    <table style="width:100%">
-        @for($i = 1 ; $i <= 9 ; $i++)
-            <tr>
-                @for($j = 0 ; $j < 3 ; $j++)
-                    <td align="center" class="col{{$j}}">
-                        <h4>
-                            {{ $consortium['fancy_name'] }}
-                            <br>
+        <div style="width: 100%" class="box">
+            <?php $i = 0 ?>
+            @foreach($contacts as $contact)
+                <div class="td col{{$i}}" align="center">
+                    <h4>
+                        {{ $contact['first_name'] . ' ' . $contact['last_name'] }}
+                        <br>
+                        @if( $contact['address'])
+                            Direc: {{ $contact['address'] }}
+                        @else
                             Direc: {{ $consortium['address'] }}
-                            <br>
+                        @endif
+                        <br>
+                        @if( $contact['postal_code'])
+                            CP: {{ $contact['postal_code'] }}
+                        @else
                             CP: {{ $consortium['postal_code'] }}
-                        </h4>
-                    </td>
-                @endfor
-            </tr>
-        @endfor
-    </table>
+                        @endif
+
+                    </h4>
+                </div>
+                <?php $i++ ?>
+                <?php $i > 2 ? $i = 0 : false ?>
+            @endforeach
+        </div>
     </body>
 </html>
