@@ -130,9 +130,23 @@ class RemitoController extends Controller
 
         $writer->save('php://output', 'xlsx');
 
+    }
 
-        dd($request->request);
+    public function printRemito(Request $request){
+        $data = [];
+        $data['id_administracion'] = $request->input('id_administration');
+        $data['name'] = $request->input('name');
+        $data['address'] = $request->input('address');
+        $data['responsible'] = $request->input('responsible');
+        $data['phone'] = $request->input('phone');
+        $data['typeDelivery'] = $request->input('typeDelivery');
+        $data['expenses'] = $request->input('expenses');
+        $data['salary'] = $request->input('salary');
+        $data['date'] = $request->input('date');
+        $data['recieve'] = $request->input('recieve');
 
+        dd($data);
+        return view('templates.remito')->with('data', $data);
     }
 
 }
