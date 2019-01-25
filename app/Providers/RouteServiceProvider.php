@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Util\EnviromentHelper;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,7 +25,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (EnviromentHelper::isLive()){
+            URL::forceScheme('https');
+        } else {
+            URL::forceScheme('http');
+        }
+
 
         parent::boot();
     }
