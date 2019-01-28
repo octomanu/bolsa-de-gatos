@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Auth::routes();
 
@@ -32,7 +32,6 @@ Route::get('/roles/{id}/asignar/{idRol}', 'RoleController@asignRoles')->name('ro
 Route::get('/crearRol', 'RoleController@createRol')->name('crearRol');
 Route::post('/crearRol', 'RoleController@storeRol')->name('crearRol');
 
-
 Route::get('/report', 'ReportController@whitelistAdministrations')->name('report');
 Route::get('/busqueda', 'ReportController@search')->name('report');
 Route::post('/busqueda', 'ReportController@searchBy')->name('report');
@@ -42,6 +41,12 @@ Route::get('/consorcio/{id}', 'ReportController@infoConsortium')->name('search')
 
 Route::get('/tags/{id}', 'TagsController@printTags')->name('tags');
 
-Route::get('/heartbeat.php', function() {
+Route::get('/heartbeat.php', function () {
     return 'OK';
+});
+
+
+//Testing Routes From API
+Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
+    Route::post('login', 'AuthController@authenticate');
 });
