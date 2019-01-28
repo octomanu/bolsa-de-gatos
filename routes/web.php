@@ -47,9 +47,3 @@ Route::get('/tags/{id}', 'TagsController@printTags')->name('tags');
 Route::get('/heartbeat.php', function () {
     return 'OK';
 });
-
-
-//Testing Routes From API
-Route::group(['prefix' => 'api', 'namespace' => 'Api'], function () {
-    Route::post('login', 'AuthController@authenticate');
-});
