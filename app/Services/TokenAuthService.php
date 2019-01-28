@@ -11,7 +11,6 @@ class TokenAuthService
 
     public function autenticar($email, $password)
     {
-
         $user = User::where('email', $email)->first();
 
         if (!$user) {
