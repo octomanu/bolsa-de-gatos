@@ -75,7 +75,7 @@
         <script>
             window.onload = function(){
                 window.print();
-                //window.location = '/busqueda'
+                window.location = '/administraciones'
             }
         </script>
     </head>
@@ -83,7 +83,7 @@
     <table>
         <tr class="header">
             <td colspan="2">
-                <img src="{{ asset('img/logo_octopus.png') }}" alt="">
+                <img src="{{ url('img/logo_octopus.png') }}" alt="">
             </td>
             <th colspan="3">
                 REMITO DE ENTREGA DOCUMENTACION
