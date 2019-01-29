@@ -139,6 +139,12 @@
                                 <div class="form-group">
                                     <label for="typeDelivery" class="col-md-4 control-label">Sueldos</label>
                                     <div class="col-md-6">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" name="salary[]"  value="all">
+                                                TODOS
+                                            </label>
+                                        </div>
                                         @foreach($consortiums as $consortium)
                                             <div class="form-check">
                                                 <label class="form-check-label">
