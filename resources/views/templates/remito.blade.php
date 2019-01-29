@@ -66,6 +66,9 @@
                 vertical-align: top;
                 padding-top: 5px;
             }
+            li{
+                margin-bottom: 5px;
+            }
             @media print {
                 @page { margin: 0;
                     size: auto; }
@@ -83,7 +86,11 @@
     <table>
         <tr class="header">
             <td colspan="2">
-                <img src="{{ url('img/logo_octopus.png') }}" alt="">
+                @if(\App\Util\EnviromentHelper::isLive())
+                    <img src="{{ asset('img/logo_octopus.png', true) }}" alt="">
+                @else
+                    <img src="{{ asset('img/logo_octopus.png') }}" alt="">
+                @endif
             </td>
             <th colspan="3">
                 REMITO DE ENTREGA DOCUMENTACION
