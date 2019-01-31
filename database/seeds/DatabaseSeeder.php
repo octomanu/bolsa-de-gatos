@@ -11,7 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         $this->call(UsersTableSeeder::class);
         $this->call(RoleTableSeeder::class);
+=======
+   
+        $this->call(UsersTableSeeder::class);
+      
+>>>>>>> add jwt login
     }
 }
+ 
