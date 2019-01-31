@@ -144,8 +144,8 @@ class RemitoController extends Controller
         $data['salary'] = $request->input('salary');
         $data['date'] = $request->input('date');
         $data['recieve'] = $request->input('recieve');
+        $data['social'] = $request->input('social');
 
-        dd($data);
         return view('templates.remito')->with('data', $data);
     }
 

@@ -47,7 +47,7 @@
                                 <label for="address" class="col-md-4 control-label">Domicilio</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control" name="address" value="{{ $administration['address'] }}" readonly>
+                                    <input id="address" type="text" class="form-control" name="address" value="{{ $administration['address'] }}">
 
                                     @if ($errors->has('address'))
                                         <span class="help-block">
@@ -139,6 +139,12 @@
                                 <div class="form-group">
                                     <label for="typeDelivery" class="col-md-4 control-label">Sueldos</label>
                                     <div class="col-md-6">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" name="salary[]"  value="all">
+                                                TODOS
+                                            </label>
+                                        </div>
                                         @foreach($consortiums as $consortium)
                                             <div class="form-check">
                                                 <label class="form-check-label">

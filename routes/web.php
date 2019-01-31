@@ -35,6 +35,9 @@ Route::post('/crearRol', 'RoleController@storeRol')->name('crearRol');
 Route::get('/report', 'ReportController@whitelistAdministrations')->name('report');
 Route::get('/busqueda', 'ReportController@search')->name('report');
 Route::post('/busqueda', 'ReportController@searchBy')->name('report');
+Route::get('/mostrar-expensas/{id}', 'ExpensesController@showExpenses')->name('expenses');
+Route::get('/expensas/{id}', 'ExpensesController@formExpense')->name('expenses');
+Route::post('/expensas/{id}', 'ExpensesController@notesAndBank')->name('expenses');
 
 Route::get('/administracion/{id}', 'ReportController@infoAdministration')->name('search');
 Route::get('/consorcio/{id}', 'ReportController@infoConsortium')->name('search');

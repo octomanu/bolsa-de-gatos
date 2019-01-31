@@ -137,6 +137,15 @@
                                 </div>
                             </div>
                             <hr />
+                            <div class="row">
+                                <div class="col-sm-3 col-md-2 col-5">
+                                    <label style="font-weight:bold;">Expensas</label>
+                                </div>
+                                <div class="col-md-8 col-6">
+                                    <a href="/mostrar-expensas/{{ $administration['id'] }}" class="btn btn-primary">Mostrar Expensas</a>
+                                </div>
+                            </div>
+                            <hr />
                         </div>
                     @else
                         <div class="panel-heading">{{ $consortium['fancy_name'] }}</div>

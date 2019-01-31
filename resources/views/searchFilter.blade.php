@@ -38,6 +38,12 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
+                                    @foreach($data as $datos)
+                                        @if(!isset($datos['name']))
+                                            <th>ID administración</th>
+                                            @break
+                                        @endif
+                                    @endforeach
                                     <th scope="col">Link</th>
                                 </tr>
                                 </thead>
@@ -52,7 +58,8 @@
                                     @else
                                         <tr>
                                             <th scope="row" width="10%">{{ $datos['id'] }}</th>
-                                            <td width="70%">{{ $datos['fancy_name'] }}</td>
+                                            <td width="50%">{{ $datos['fancy_name'] }}</td>
+                                            <td width="20%">{{ $datos['administration_id'] }}</td>
                                             <td width="20%"><a href="/consorcio/{{ $datos['id'] }}" class="btn btn-success">Más info</a> <a href="/tags/{{ $datos['id'] }}"><i class="fas fa-tags"></i></a></td>
                                         </tr>
                                     @endif
