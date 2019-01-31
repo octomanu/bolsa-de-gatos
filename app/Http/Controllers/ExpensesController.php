@@ -38,7 +38,7 @@ class ExpensesController extends Controller
     public function formExpense($id){
         $notas = DB::connection('pgsql')->select('select * from expense_notes where expense_id = '. $id);
 
-        $bank = DB::connection('pgsql')->select('select * from expense_payment_methods epm inner join expense_payment_method_sections epms on epm.expense_payment_method_section_id = epms.id where epms.expense_id = '. $id);
+        $bank = DB::connection('pgsql')->select('select epm.* from expense_payment_methods epm inner join expense_payment_method_sections epms on epm.expense_payment_method_section_id = epms.id where epms.expense_id = '. $id);
 
         $notes1 = [];
 
