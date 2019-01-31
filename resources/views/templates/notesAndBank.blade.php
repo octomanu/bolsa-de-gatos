@@ -35,6 +35,8 @@
     </head>
     <body>
 
+    <?php dd($data)?>
+
         <h3>NOTAS: </h3>
         @foreach($data[0] as $note)
             <div>

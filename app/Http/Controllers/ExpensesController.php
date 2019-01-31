@@ -77,7 +77,6 @@ class ExpensesController extends Controller
         $adminId = ((array) $administration[0])['id'];
 
 
-        return view('templates.notesAndBank')->with('data', [$notes1, $bank1, $adminId
-        ]);
+        return view('templates.notesAndBank')->with('data', [$notes1, $bank1, $adminId]);
     }
 }
