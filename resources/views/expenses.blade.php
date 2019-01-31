@@ -19,7 +19,7 @@
                             @foreach ( $expenses as $expense)
                                 <?php $consortia = \App\Http\Controllers\ExpensesController::consortiaNameById($expense['administrable_id']);
                                 ?>
-                                <li class="d-flex justify-content-between align-items-center">{{$expense['id'] . '-' . $consortia  }}<a class="btn btn-info pull-right" href="/expensas/{{ $expense['id'] }}">Imprimir notas y banco</a></li>
+                                <li class="d-flex justify-content-between align-items-center">{{$expense['id'] . '-' . $consortia  }} <strong>{{ $expense['close_date'] }}</strong><a class="btn btn-info pull-right" href="/expensas/{{ $expense['id'] }}">Imprimir notas y banco</a></li>
                                 <hr>
                             @endforeach
                         </ul>
