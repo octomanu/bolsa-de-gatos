@@ -39,7 +39,7 @@
         @foreach($data[0] as $note)
             <div>
                 <h4>{{ $note['title'] }}</h4>
-                <p>{{ $note['description'] }}</p>
+                <p>{!! $note['description'] !!}</p>
             </div>
         @endforeach
 
