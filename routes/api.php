@@ -17,4 +17,5 @@
 
 Route::group(['namespace' => 'Api'], function () {
     Route::post('login', 'AuthController@authenticate');
+    Route::get('usuarios', 'UserController@index');
 });
