@@ -34,7 +34,7 @@
                                     <div class="col-md-6">
                                         @foreach($notes as $note)
                                             <div class="checkbox">
-                                                <label><input type="checkbox" name="notes[]" value="{{$note['id']}}" checked>{{ $note['description'] }}</label>
+                                                <label><input type="checkbox" name="notes[]" value="{{$note['id']}}" checked>{!! $note['description'] !!}</label>
                                             </div>
                                         @endforeach
                                     </div>
