@@ -65,26 +65,6 @@
                     </tr>
                 </table>
             </div>
-            <div class="tabla">
-                <table class="table-bordered table">
-                    <tr>
-                        <td><strong>TITULAR: </strong>{{$ban['bank_branch']}}</td>
-                        <td><strong>BANCO: </strong>{{$ban['bank_name']}}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CBU: </strong>{{$ban['cbu']}}</td>
-                        <td><strong>SUCURSAL: </strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>ALIAS: </strong>{{$ban['alias']}}</td>
-                        <td><strong>CODIGO DE PAGO ELECTRONICO: </strong>{{$ban['electronic_payment_code']}}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>NRo. DE CUENTA: </strong>{{$ban['account_number']}}</td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
         @endforeach
     </body>
 </html>
