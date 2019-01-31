@@ -28,8 +28,8 @@
         </style>
         <script>
             window.onload = function(){
-                window.print();
-                window.location = '/mostrar-expensas/{{$data[2]}}'
+                //window.print();
+                //window.location = '/mostrar-expensas/{{$data[2]}}'
             }
         </script>
     </head>
