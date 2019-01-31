@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->call(UsersTableSeeder::class);
         $this->call(RoleTableSeeder::class);
 =======
@@ -19,6 +20,15 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
       
 >>>>>>> add jwt login
+=======
+   
+        $this->call(UsersTableSeeder::class);
+      
+=======
+        $this->call(UsersTableSeeder::class);
+        $this->call(RoleTableSeeder::class);
+>>>>>>> upstream/master
+>>>>>>> 6befa37d2430989de6d519db82f40d233bdceadb
     }
 }
  
