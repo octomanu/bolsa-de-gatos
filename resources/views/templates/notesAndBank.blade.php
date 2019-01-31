@@ -28,14 +28,12 @@
         </style>
         <script>
             window.onload = function(){
-                //window.print();
-                //window.location = '/mostrar-expensas/{{$data[2]}}'
+                window.print();
+                window.location = '/mostrar-expensas/{{$data[2]}}'
             }
         </script>
     </head>
     <body>
-
-    <?php dd($data)?>
 
         <h3>NOTAS: </h3>
         @foreach($data[0] as $note)

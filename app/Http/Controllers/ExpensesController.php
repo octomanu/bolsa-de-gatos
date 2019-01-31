@@ -61,9 +61,6 @@ class ExpensesController extends Controller
 
         $bank = DB::connection('pgsql')->select('select epm.* from expense_payment_methods epm where epm.id in (' . $banks . ')');
 
-        var_dump($banks);
-        dd($bank);
-
         $notes1 = [];
 
         foreach($notas as $admin){
